@@ -13,21 +13,19 @@ let tokenTimestamp = null;
 
 // 🔐 Ottieni il token da Reddit
 async function getRedditToken() {
-  const credentials = Buffer.from(`${REDDIT_CLIENT_ID}:${REDDIT_SECRET}`).toString('base64');
-
-  const response = await fetch(`https://oauth.reddit.com/r/${chosenSub}/top.json?t=year&limit=1000`, {
+  const response = await fetch('https://www.reddit.com/api/v1/access_token', {
     method: 'POST',
     headers: {
-      'Authorization': `Basic ${credentials}`,
+      'Authorization': 'Basic ' + Buffer.from(`${REDDIT_CLIENT_ID}:${REDDIT_SECRET}`).toString('base64'),
       'Content-Type': 'application/x-www-form-urlencoded'
     },
     body: 'grant_type=client_credentials'
   });
 
-  const data = await response.json();
-  redditToken = data.access_token;
-  tokenTimestamp = Date.now();
+  const json = await response.json();
+  redditToken = json.access_token;
 }
+
 
 // 🔁 Subreddit per categoria
 const subredditCategories = {
