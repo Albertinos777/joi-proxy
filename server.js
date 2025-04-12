@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 
 // Reddit credentials
-const REDDIT_CLIENT_ID = 'Striking-Expert1218';
+const REDDIT_CLIENT_ID = 's0z1rcxfv0UyvVntYiJldg';
 const REDDIT_SECRET = 'wyZYLwRMUBZVNJu41T-_Kmliu-I2WQ';
 let redditToken = null;
 let tokenTimestamp = null;
