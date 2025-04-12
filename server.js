@@ -15,7 +15,7 @@ let tokenTimestamp = null;
 async function getRedditToken() {
   const credentials = Buffer.from(`${REDDIT_CLIENT_ID}:${REDDIT_SECRET}`).toString('base64');
 
-  const response = await fetch('https://www.reddit.com/api/v1/access_token', {
+  const response = await fetch(`https://oauth.reddit.com/r/${chosenSub}/top.json?t=year&limit=1000`, {
     method: 'POST',
     headers: {
       'Authorization': `Basic ${credentials}`,
@@ -32,10 +32,11 @@ async function getRedditToken() {
 // 🔁 Subreddit per categoria
 const subredditCategories = {
   real: ['nsfw_gifs', 'realgirls', 'gonewild', 'cumsluts', 'ass', 'boobs', 'legalteens'],
+  cosplay: ['nsfwcosplay', 'cosplaybabes', 'cosplaygirls', 'cosplaybutts', 'cosplaygonewild'],
   hentai: ['hentai', 'rule34', 'nsfwhentai', 'animepussy', 'hentaigif'],
-  cosplay: ['nsfwcosplay', 'cosplaybabes', 'cosplaygirls'],
-  mix: ['nsfw', 'gonewildcolor', 'blowjobs', 'porninfocus', 'workgonewild']
+  mix: ['blowjobs', 'workgonewild', 'porninfocus']
 };
+
 
 subredditCategories.all = Object.values(subredditCategories).flat();
 
