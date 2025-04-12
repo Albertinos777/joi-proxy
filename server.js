@@ -5,8 +5,8 @@ const app = express();
 
 app.use(cors());
 
-const REDDIT_CLIENT_ID = 'TUO_CLIENT_ID';
-const REDDIT_SECRET = 'TUO_CLIENT_SECRET';
+const REDDIT_CLIENT_ID = 'Striking-Expert1218';
+const REDDIT_SECRET = 'wyZYLwRMUBZVNJu41T-_Kmliu-I2WQ';
 let redditToken = null;
 
 async function getRedditToken() {
